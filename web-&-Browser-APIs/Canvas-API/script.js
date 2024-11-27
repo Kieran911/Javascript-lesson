@@ -1,7 +1,7 @@
 const canvas = document.getElementById('my-canvas');
 const ctx = canvas.getContext('2d');
 
-// Draw Rectangle
+/* // Draw Rectangle
 ctx.fillStyle = 'green';
 ctx.fillRect(10, 10, 150, 100); // x, y, width, height
 
@@ -32,4 +32,30 @@ image.style.display = 'none';
 
 image.addEventListener('load', () => {
   ctx.drawImage(image, 250, 250, 100, 100);
-});
+}); */
+
+ctx.beginPath();
+
+const centerX = canvas.width / 2;
+const centerY = canvas.width / 2;
+
+ctx.arc(centerX, centerY, 200, 0, Math.PI * 2);
+
+// move to mouth
+ctx.moveTo(centerX + 100, centerY);
+
+// Draw Mouth
+ctx.arc(centerX, centerY, 100, 0, Math.PI, false);
+
+//Move to right Eye
+ctx.moveTo(centerX + 80, centerY - 100);
+
+// Draw right Eye
+ctx.arc(centerX + 60, centerY - 100, 20, 0, Math.PI * 2);
+
+//Move to left Eye
+ctx.moveTo(centerX - 40, centerY - 100);
+
+// Draw left Eye
+ctx.arc(centerX - 60, centerY - 100, 20, 0, Math.PI * 2);
+ctx.stroke();
