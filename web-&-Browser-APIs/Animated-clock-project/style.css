@@ -14,15 +14,20 @@ button {
   cursor: pointer;
 }
 
+#canvas {
+  margin-top: -80px;
+}
+
 .card {
   background: #f4f4f4;
   border-left: 1px solid #ccc;
   border-bottom: 1px solid #ccc;
   padding: 7px 20px;
   width: 300px;
-  position: absolute;
+  margin-top: -50px;
+  /* position: absolute;
   bottom: 0;
-  left: 0;
+  left: 0; */
 }
 
 .form-input {
