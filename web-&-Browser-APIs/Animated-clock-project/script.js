@@ -28,8 +28,6 @@ function loadFromStorage() {
   secondHandColor.value = colorValue.secondHandColorValue;
 }
 
-loadFromStorage();
-
 function clock() {
   const now = new Date();
   const canvas = document.getElementById('canvas');
@@ -135,9 +133,23 @@ clock();
 
 requestAnimationFrame(clock);
 
+// Reset to default colors
+function resetColors() {
+  localStorage.clear();
+  faceColor.value = '#f4f4f4';
+  borderColor.value = '#800000';
+  lineColor.value = '#000000';
+  largeHandColor.value = '#800000';
+  secondHandColor.value = '#FF7F50';
+
+  setColorToStorage();
+}
+
 // Event listeners
 [faceColor, borderColor, lineColor, largeHandColor, secondHandColor].forEach(
   (item) => {
     item.addEventListener('input', setColorToStorage);
   }
 );
+document.querySelector('#reset-btn').addEventListener('click', resetColors);
+document.addEventListener('DOMContentLoaded', loadFromStorage);
