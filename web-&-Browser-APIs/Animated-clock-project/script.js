@@ -3,6 +3,7 @@ const borderColor = document.getElementById('border-color');
 const lineColor = document.getElementById('line-color');
 const largeHandColor = document.getElementById('large-hand-color');
 const secondHandColor = document.getElementById('second-hand-color');
+const saveBtn = document.getElementById('save-btn');
 
 // Reassigning values
 function setColorToStorage() {
@@ -151,5 +152,12 @@ function resetColors() {
     item.addEventListener('input', setColorToStorage);
   }
 );
+saveBtn.addEventListener('click', () => {
+  const imgURL = canvas.toDataURL('image/png');
+  const link = document.createElement('a');
+  link.download = 'clock.png';
+  link.href = imgURL;
+  link.click();
+});
 document.querySelector('#reset-btn').addEventListener('click', resetColors);
 document.addEventListener('DOMContentLoaded', loadFromStorage);
