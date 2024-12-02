@@ -2,12 +2,12 @@ const ball = document.getElementById('ball');
 const play = document.getElementById('play');
 const pause = document.getElementById('pause');
 const reverse = document.getElementById('reverse');
-const speedUp = document.getElementById('speedUp');
-const sppedDown = document.getElementById('sppedDown');
+const speedUp = document.getElementById('speed-up');
+const slowDown = document.getElementById('slow-down');
 
-const rollAnimations = [
+const rollAnimation = [
   {
-    transform: 'rotate(0) transform3D(-50%, -50%, 0',
+    transform: 'rotate(0) transform3D(-50%, -50%, 0)',
     color: 'white',
   },
   {
@@ -15,7 +15,7 @@ const rollAnimations = [
     offset: 0.3,
   },
   {
-    transform: 'rotate(360deg) translate3D(-50%, -50%, 0',
+    transform: 'rotate(360deg) translate3D(-50%, -50%, 0)',
     color: 'white',
   },
 ];
@@ -25,9 +25,21 @@ const rollOptions = {
   iterations: Infinity,
 };
 
-const roll = ball.animate(rollAnimations, rollOptions);
+const roll = ball.animate(rollAnimation, rollOptions);
 
 // Event Listeners
-play.addEventListener('click', () => roll.play());
+play.addEventListener('click', () => {
+  roll.playbackRate = 1;
+  roll.play();
+});
 pause.addEventListener('click', () => roll.pause());
 reverse.addEventListener('click', () => roll.reverse());
+speedUp.addEventListener(
+  'click',
+  () => (roll.playbackRate = roll.playbackRate * 2)
+);
+
+slowDown.addEventListener(
+  'click',
+  () => (roll.playbackRate = roll.playbackRate * 0.5)
+);
