@@ -12,7 +12,7 @@ Player.prototype.gainXp = function (xp) {
     this.points -= 10;
   }
 
-  console.log(this.describe());
+  console.log(this.describe()); // This is abstraction, here the describe method is hidden inside another function and will be called once the function is called
 };
 
 Player.prototype.describe = function () {
@@ -32,4 +32,4 @@ player1.gainXp(7);
 player2.gainXp(2);
 
 //console.log(player1.describe());
-//console.log(player2.describe());
+//console.log(player2.describe());  //Abstraction hides this away in another function
