@@ -28,3 +28,22 @@ for (let key in user) {
 
 // getOwnPropertySymbols
 console.log(Object.getOwnPropertySymbols(user));
+
+// Symbol.for()
+const sym3 = Symbol.for('foo');
+const sym4 = Symbol.for('foo');
+
+console.log(sym3 === sym4);
+
+console.log(Symbol.keyFor(sym3));
+console.log(Symbol.keyFor(sym1));
+
+console.log(sym1.toString());
+console.log(sym3.toString());
+console.log(sym.toString());
+
+console.log(sym1.valueOf());
+console.log(sym3.valueOf());
+console.log(sym.valueOf());
+
+console.log(Object.getOwnPropertySymbols(Symbol));
