@@ -26,7 +26,7 @@ class Queue {
   }
 
   peek() {
-    if (this.isEmpty) {
+    if (this.isEmpty()) {
       return 'No items in the queue';
     } else {
       return this._items[this._front];
@@ -46,6 +46,9 @@ const q = new Queue();
 q.enqueue('Item 1');
 q.enqueue('Item 2');
 q.enqueue('Item 3');
+
+q.dequeue();
+q.dequeue();
 
 console.log('Front Item: ', q.peek());
 console.log('Queue Length: ', q.length());
